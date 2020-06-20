@@ -20,8 +20,6 @@ def consolidate_cart(cart)
     count+=1
   end
   uniq_item=total_item.uniq
-  count_item={}
-  total_item.each {|item| count_item[item]+=1}
   count=0
   while count<uniq_item.length do
     answer<<find_item_by_name_in_collection(uniq_item[count],cart)

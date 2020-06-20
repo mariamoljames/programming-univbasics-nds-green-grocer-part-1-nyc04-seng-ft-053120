@@ -23,7 +23,7 @@ def consolidate_cart(cart)
   count=0
   while count<uniq_item.length do
     answer<<find_item_by_name_in_collection(uniq_item[count],cart)
-    answer[count][:count]=count_item[:uniq_item[count]]
+    answer[count][:count]=total_item.count(uniq_item[count])
     count+=1
   end
   answer

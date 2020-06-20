@@ -13,18 +13,19 @@ end
 
 def consolidate_cart(cart)
   answer=[]
-  items=[]
+  total_item=[]
   count=0
   while count<cart.length do
-    items<<cart[count][:item]
+    total_item<<cart[count][:item]
     count+=1
   end
+  uniq_item=total_item.uniq
+  count_item={}
+  total_item.each {|item| count_item[item]+=1}
   count=0
-  item_count={}
-  items.each {|item| item_count[item]+=1}
-  while count<items.uniq.length do
-    answer<<find_item_by_name_in_collection(items.uniq[count],cart)
-    answer[count][:count]=item_count[:items.uniq[count]]
+  while count<uniq_item.length do
+    answer<<find_item_by_name_in_collection(uniq_item[count],cart)
+    answer[count][:count]=count_item[:uniq_item[count]]
     count+=1
   end
   answer
